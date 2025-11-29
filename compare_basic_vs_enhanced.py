@@ -5,6 +5,7 @@ Shows the difference between output with and without metadata
 
 import sys
 import csv
+import os
 from collections import defaultdict
 
 
@@ -163,7 +164,24 @@ def main():
     """
     Main comparison demonstration
     """
-    filename = "dijkstra_bellman_medium_dataset.csv"
+    # Prefer medium dataset; fall back to available subset files
+    candidate_files = [
+        "dijkstra_bellman_medium_dataset.csv",
+        "dijkstra_bellman_10000_dataset.csv",
+        "dijkstra_bellman_5000_dataset.csv",
+        "dijkstra_bellman_1000_dataset.csv",
+        "dijkstra_bellman_250_dataset.csv",
+    ]
+
+    filename = None
+    for f in candidate_files:
+        if os.path.exists(f):
+            filename = f
+            break
+
+    if filename is None:
+        print("ERROR: No dataset file found. Please run 'create_nyc_datasets.py' or 'create_subset_datasets.py' first.")
+        return 1
     source = 0
     
     print("=" * 80)
@@ -174,8 +192,13 @@ def main():
     
     # Load data
     print("\nLoading data...")
-    graph_basic, num_vertices_basic = load_dataset_basic(filename)
-    graph_enhanced, num_vertices_enhanced, edge_metadata = load_dataset_enhanced(filename)
+    try:
+        graph_basic, num_vertices_basic = load_dataset_basic(filename)
+        graph_enhanced, num_vertices_enhanced, edge_metadata = load_dataset_enhanced(filename)
+    except FileNotFoundError:
+        print(f"ERROR: Dataset file '{filename}' not found.")
+        print("Hint: Generate datasets with 'create_nyc_datasets.py' or use existing subset CSVs.")
+        return 1
     
     # Run Dijkstra
     print("Running Dijkstra's algorithm...")
@@ -267,4 +290,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    exit_code = main()
+    if isinstance(exit_code, int):
+        sys.exit(exit_code)

@@ -1,5 +1,6 @@
 import csv
 import time
+import os
 from dijkstra_algorithm import run_dijkstra
 
 def run_detailed_test(filename, dataset_name, num_runs=20):
@@ -34,17 +35,35 @@ def run_detailed_test(filename, dataset_name, num_runs=20):
     return times, avg_time
 
 # Run for all datasets
-datasets = [
+# Prefer base datasets; fall back to available subset files
+candidate_datasets = [
     ("dijkstra_bellman_small_dataset.csv", "SMALL (1,000 edges)"),
     ("dijkstra_bellman_medium_dataset.csv", "MEDIUM (10,000 edges)"),
-    ("dijkstra_bellman_large_dataset.csv", "LARGE (50,000 edges)")
+    ("dijkstra_bellman_large_dataset.csv", "LARGE (50,000 edges)"),
+    ("dijkstra_bellman_250_dataset.csv", "SMALL SUBSET (250 edges)"),
+    ("dijkstra_bellman_500_dataset.csv", "SMALL SUBSET (500 edges)"),
+    ("dijkstra_bellman_750_dataset.csv", "SMALL SUBSET (750 edges)"),
+    ("dijkstra_bellman_1000_dataset.csv", "SMALL SUBSET (1000 edges)"),
+    ("dijkstra_bellman_5000_dataset.csv", "LARGE SUBSET (5000 edges)"),
+    ("dijkstra_bellman_10000_dataset.csv", "LARGE SUBSET (10000 edges)"),
+    ("dijkstra_bellman_15000_dataset.csv", "LARGE SUBSET (15000 edges)"),
+    ("dijkstra_bellman_20000_dataset.csv", "LARGE SUBSET (20000 edges)")
 ]
+
+datasets = [(f, label) for f, label in candidate_datasets if os.path.exists(f)]
+
+if not datasets:
+    print("ERROR: No dataset CSV files found. Create them via 'create_nyc_datasets.py' or 'create_subset_datasets.py'.")
+    raise SystemExit(1)
 
 all_results = {}
 
 for filename, name in datasets:
-    times, avg = run_detailed_test(filename, name)
-    all_results[name] = {'times': times, 'average': avg}
+    try:
+        times, avg = run_detailed_test(filename, name)
+        all_results[name] = {'times': times, 'average': avg}
+    except Exception as e:
+        print(f"[ERROR] Failed on {name} ({filename}): {e}")
 
 print("\n" + "="*70)
 print("SUMMARY - ALL DATASETS")

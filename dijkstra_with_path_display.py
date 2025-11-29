@@ -6,6 +6,7 @@ Shows actual street names and metadata in the output
 import sys
 import csv
 import time
+import os
 from collections import defaultdict
 
 
@@ -188,11 +189,29 @@ def main():
     print("ENHANCED DIJKSTRA'S ALGORITHM - WITH STREET NAME DISPLAY")
     print("=" * 80)
     
-    # Load dataset
-    filename = "dijkstra_bellman_small_dataset.csv"
+    # Load dataset with fallbacks to available subset files
+    candidates = [
+        "dijkstra_bellman_small_dataset.csv",
+        "dijkstra_bellman_1000_dataset.csv",
+        "dijkstra_bellman_750_dataset.csv",
+        "dijkstra_bellman_500_dataset.csv",
+        "dijkstra_bellman_250_dataset.csv",
+    ]
+    filename = None
+    for f in candidates:
+        if os.path.exists(f):
+            filename = f
+            break
+    if filename is None:
+        print("ERROR: No suitable dataset found. Please create datasets via 'create_nyc_datasets.py' or 'create_subset_datasets.py'.")
+        return 1
     print(f"\nLoading dataset: {filename}...")
     
-    graph, num_vertices, edge_metadata = load_enhanced_dataset(filename)
+    try:
+        graph, num_vertices, edge_metadata = load_enhanced_dataset(filename)
+    except FileNotFoundError:
+        print(f"ERROR: Dataset file '{filename}' not found.")
+        return 1
     
     print(f"✓ Loaded {len(edge_metadata)} edges")
     print(f"✓ Total vertices: {num_vertices}")
@@ -261,4 +280,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    code = main()
+    if isinstance(code, int):
+        sys.exit(code)

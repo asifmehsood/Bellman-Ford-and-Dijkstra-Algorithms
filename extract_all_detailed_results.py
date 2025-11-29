@@ -2,6 +2,7 @@
 Extract detailed results (20 individual runs) for all 8 dataset sizes
 """
 import time
+import os
 from dijkstra_algorithm import run_dijkstra
 from bellman_ford_algorithm import run_bellman_ford
 
@@ -41,6 +42,9 @@ def main():
     print("=" * 80)
     
     for filename, label, vertices in datasets:
+        if not os.path.exists(filename):
+            print(f"\n[SKIP] {label} - file not found: {filename}")
+            continue
         print(f"\n{'='*80}")
         print(f"Dataset: {label} ({vertices} vertices)")
         print(f"File: {filename}")
@@ -49,7 +53,11 @@ def main():
         # Run Dijkstra
         print(f"\nDijkstra's Algorithm (20 runs):")
         print("-" * 80)
-        dijkstra_times = run_detailed_test(filename, "Dijkstra", run_dijkstra)
+        try:
+            dijkstra_times = run_detailed_test(filename, "Dijkstra", run_dijkstra)
+        except Exception as e:
+            print(f"[ERROR] Dijkstra failed on {filename}: {e}")
+            continue
         for i, t in enumerate(dijkstra_times, 1):
             print(f"Run {i:2d}: {t:8.4f} ms")
         
@@ -65,7 +73,11 @@ def main():
         # Run Bellman-Ford
         print(f"\nBellman-Ford Algorithm (20 runs):")
         print("-" * 80)
-        bellman_times = run_detailed_test(filename, "Bellman-Ford", run_bellman_ford)
+        try:
+            bellman_times = run_detailed_test(filename, "Bellman-Ford", run_bellman_ford)
+        except Exception as e:
+            print(f"[ERROR] Bellman-Ford failed on {filename}: {e}")
+            continue
         for i, t in enumerate(bellman_times, 1):
             print(f"Run {i:2d}: {t:8.4f} ms")
         
