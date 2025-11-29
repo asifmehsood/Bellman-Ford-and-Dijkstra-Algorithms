@@ -1,0 +1,251 @@
+source,target,weight,street_name,highway_type,oneway,maxspeed,length_meters
+0,1,255,Unnamed Street,motorway_link,True,N/A,254.71
+0,2,768,Cross Island Parkway,motorway,True,50 mph,767.80
+3,4,260,Unnamed Street,motorway_link,True,N/A,259.67
+3,5,292,Cross Island Parkway,motorway,True,50 mph,291.84
+6,7,433,Unnamed Street,motorway_link,True,N/A,433.15
+6,8,552,Cross Island Parkway,motorway,True,50 mph,552.42
+9,10,86,Central Park West,secondary,False,25 mph,86.26
+10,9,86,Central Park West,secondary,False,25 mph,86.26
+9,11,85,Central Park West,secondary,False,25 mph,85.34
+11,9,85,Central Park West,secondary,False,25 mph,85.34
+9,12,138,West 106th Street,secondary,False,N/A,138.03
+12,9,138,West 106th Street,secondary,False,N/A,138.03
+12,13,86,Manhattan Avenue,residential,False,N/A,86.15
+13,12,86,Manhattan Avenue,residential,False,N/A,86.15
+12,14,86,Manhattan Avenue,residential,False,N/A,85.61
+14,12,86,Manhattan Avenue,residential,False,N/A,85.61
+12,9,138,West 106th Street,secondary,False,N/A,138.03
+9,12,138,West 106th Street,secondary,False,N/A,138.03
+12,15,135,West 106th Street,secondary,False,N/A,134.77
+15,12,135,West 106th Street,secondary,False,N/A,134.77
+15,12,135,West 106th Street,secondary,False,N/A,134.77
+12,15,135,West 106th Street,secondary,False,N/A,134.77
+15,16,86,Columbus Avenue,primary,True,25 mph,85.99
+15,17,271,West 106th Street,secondary,False,N/A,271.35
+17,15,271,West 106th Street,secondary,False,N/A,271.35
+17,18,86,Amsterdam Avenue,primary,True,N/A,86.11
+17,19,200,West 106th Street,secondary,False,N/A,199.80
+19,17,200,West 106th Street,secondary,False,N/A,199.80
+17,15,271,West 106th Street,secondary,False,N/A,271.35
+15,17,271,West 106th Street,secondary,False,N/A,271.35
+20,19,22,West 106th Street,secondary,False,N/A,22.09
+19,20,22,West 106th Street,secondary,False,N/A,22.09
+20,21,56,West 106th Street,secondary,False,N/A,55.92
+21,20,56,West 106th Street,secondary,False,N/A,55.92
+20,22,93,Broadway,primary,True,25 mph,93.40
+21,23,142,West 106th Street,residential,False,N/A,142.26
+23,21,142,West 106th Street,residential,False,N/A,142.26
+21,20,56,West 106th Street,secondary,False,N/A,55.92
+20,21,56,West 106th Street,secondary,False,N/A,55.92
+21,24,86,West End Avenue,tertiary,False,25 mph,85.58
+24,21,86,West End Avenue,tertiary,False,25 mph,85.58
+23,25,85,Riverside Drive,residential,True,N/A,85.18
+23,21,142,West 106th Street,residential,False,N/A,142.26
+21,23,142,West 106th Street,residential,False,N/A,142.26
+26,27,86,Columbus Avenue,primary,True,25 mph,86.01
+28,26,272,West 80th Street,residential,True,N/A,271.70
+28,29,82,Amsterdam Avenue,primary,True,N/A,81.62
+30,31,17,West 80th Street,residential,True,N/A,17.10
+30,32,86,Broadway,primary,True,25 mph,86.21
+33,30,105,West 80th Street,residential,True,N/A,105.43
+33,34,81,West End Avenue,tertiary,False,25 mph,80.92
+34,33,81,West End Avenue,tertiary,False,25 mph,80.92
+33,35,87,West End Avenue,tertiary,False,25 mph,86.55
+35,33,87,West End Avenue,tertiary,False,25 mph,86.55
+36,33,128,West 80th Street,residential,True,N/A,127.99
+36,37,87,Riverside Drive,secondary,False,N/A,87.48
+37,36,87,Riverside Drive,secondary,False,N/A,87.48
+36,38,82,Riverside Drive,secondary,False,N/A,82.19
+38,36,82,Riverside Drive,secondary,False,N/A,82.19
+39,40,267,Nagle Avenue,primary,False,N/A,267.01
+40,39,267,Nagle Avenue,primary,False,N/A,267.01
+39,41,249,Bennett Avenue,residential,True,20 mph,249.00
+39,42,153,Broadway,primary,False,N/A,153.18
+42,39,153,Broadway,primary,False,N/A,153.18
+39,43,30,Broadway,primary,False,N/A,29.61
+43,39,30,Broadway,primary,False,N/A,29.61
+44,45,240,Hillside Avenue,tertiary,True,N/A,239.75
+44,46,201,Bogardus Place,residential,False,N/A,201.18
+46,44,201,Bogardus Place,residential,False,N/A,201.18
+45,47,128,Hillside Avenue,tertiary,True,N/A,127.59
+47,48,215,Hillside Avenue,tertiary,True,N/A,215.27
+47,49,91,Sickles Street,residential,True,N/A,90.62
+50,51,81,Central Park West,secondary,False,25 mph,80.76
+51,50,81,Central Park West,secondary,False,25 mph,80.76
+50,52,81,Central Park West,secondary,False,25 mph,80.57
+52,50,81,Central Park West,secondary,False,25 mph,80.57
+53,54,81,Columbus Avenue,primary,True,N/A,80.82
+53,50,273,West 84th Street,residential,True,N/A,273.33
+55,53,272,West 84th Street,residential,True,N/A,271.74
+55,56,81,Amsterdam Avenue,primary,True,N/A,81.11
+57,58,17,West 84th Street,residential,True,N/A,16.91
+57,59,80,Broadway,primary,True,25 mph,80.14
+60,57,109,West 84th Street,residential,True,N/A,109.25
+60,61,81,West End Avenue,tertiary,False,25 mph,80.70
+61,60,81,West End Avenue,tertiary,False,25 mph,80.70
+60,62,80,West End Avenue,tertiary,False,25 mph,80.27
+62,60,80,West End Avenue,tertiary,False,25 mph,80.27
+63,60,215,West 84th Street,residential,True,N/A,215.28
+63,64,89,Riverside Drive,secondary,False,N/A,89.46
+64,63,89,Riverside Drive,secondary,False,N/A,89.46
+63,65,88,Riverside Drive,secondary,False,N/A,88.05
+65,63,88,Riverside Drive,secondary,False,N/A,88.05
+66,67,101,East 10th Street,tertiary,False,20 mph,101.45
+67,66,101,East 10th Street,tertiary,False,20 mph,101.45
+66,68,128,East 10th Street,tertiary,False,20 mph,127.63
+68,66,128,East 10th Street,tertiary,False,20 mph,127.63
+69,70,263,La Salle Street,residential,False,N/A,263.18
+70,69,263,La Salle Street,residential,False,N/A,263.18
+69,71,96,Amsterdam Avenue,secondary,False,N/A,96.33
+71,69,96,Amsterdam Avenue,secondary,False,N/A,96.33
+69,72,171,Amsterdam Avenue,secondary,False,N/A,171.36
+72,69,171,Amsterdam Avenue,secondary,False,N/A,171.36
+73,74,83,La Salle Street,residential,False,N/A,83.20
+74,73,83,La Salle Street,residential,False,N/A,83.20
+73,70,23,La Salle Street,residential,False,N/A,22.93
+70,73,23,La Salle Street,residential,False,N/A,22.93
+73,75,247,Broadway,primary,True,N/A,246.77
+74,73,83,La Salle Street,residential,False,N/A,83.20
+73,74,83,La Salle Street,residential,False,N/A,83.20
+74,76,172,Claremont Avenue,residential,False,N/A,171.55
+76,74,172,Claremont Avenue,residential,False,N/A,171.55
+74,77,245,Claremont Avenue,residential,False,N/A,244.92
+77,74,245,Claremont Avenue,residential,False,N/A,244.92
+78,79,311,West 9th Street,residential,True,25 mph,311.31
+78,80,77,5th Avenue,secondary,True,25 mph,76.60
+79,81,41,Christopher Street,residential,True,25 mph,41.44
+79,82,81,6th Avenue,secondary,True,25 mph,81.12
+83,84,27,Water Street,primary,False,25 mph,27.20
+84,83,27,Water Street,primary,False,25 mph,27.20
+83,85,150,Water Street,primary,False,25 mph,150.43
+85,83,150,Water Street,primary,False,25 mph,150.43
+86,83,56,Old Slip,residential,True,25 mph,55.69
+87,86,79,Old Slip,residential,True,25 mph,78.95
+87,88,78,South Street,primary,False,25 mph,77.99
+88,87,78,South Street,primary,False,25 mph,77.99
+87,89,23,South Street,primary,True,25 mph,23.06
+84,90,66,Hanover Square,residential,False,25 mph,66.41
+90,84,66,Hanover Square,residential,False,25 mph,66.41
+84,91,255,Water Street,primary,False,25 mph,254.53
+91,84,255,Water Street,primary,False,25 mph,254.53
+84,89,130,Old Slip,residential,True,25 mph,129.86
+84,83,27,Water Street,primary,False,25 mph,27.20
+83,84,27,Water Street,primary,False,25 mph,27.20
+89,92,162,South Street,primary,True,25 mph,162.38
+93,94,80,Central Park West,secondary,True,25 mph,79.92
+95,96,22,West 61st Street,residential,True,N/A,21.56
+95,97,94,Broadway,primary,True,25 mph,93.69
+98,95,157,West 61st Street,residential,True,N/A,156.64
+98,99,80,Columbus Avenue,primary,True,25 mph,79.99
+100,101,79,Amsterdam Avenue,primary,True,25 mph,78.78
+100,102,80,West 61st Street,residential,False,25 mph,80.35
+102,100,80,West 61st Street,residential,False,25 mph,80.35
+103,100,276,West 61st Street,tertiary,True,N/A,275.73
+103,104,99,West 61st Street,residential,False,25 mph,99.10
+104,103,99,West 61st Street,residential,False,25 mph,99.10
+103,105,80,West End Avenue,secondary,False,N/A,79.61
+105,103,80,West End Avenue,secondary,False,N/A,79.61
+103,106,79,West End Avenue,secondary,False,N/A,79.19
+106,103,79,West End Avenue,secondary,False,N/A,79.19
+107,108,274,West 89th Street,residential,True,N/A,274.11
+107,109,81,Central Park West,secondary,False,25 mph,81.18
+109,107,81,Central Park West,secondary,False,25 mph,81.18
+107,110,80,Central Park West,secondary,False,25 mph,79.73
+110,107,80,Central Park West,secondary,False,25 mph,79.73
+108,111,271,West 89th Street,residential,True,N/A,271.02
+108,112,80,Columbus Avenue,primary,True,25 mph,80.00
+111,113,130,West 89th Street,residential,True,N/A,129.93
+111,114,80,Amsterdam Avenue,primary,True,N/A,79.95
+115,116,128,West 89th Street,residential,True,N/A,127.52
+115,117,79,Broadway,primary,True,25 mph,79.18
+116,118,213,West 89th Street,residential,True,N/A,213.48
+116,119,80,West End Avenue,tertiary,False,25 mph,79.78
+119,116,80,West End Avenue,tertiary,False,25 mph,79.78
+116,120,79,West End Avenue,tertiary,False,25 mph,78.86
+120,116,79,West End Avenue,tertiary,False,25 mph,78.86
+118,121,90,Riverside Drive,secondary,False,N/A,90.33
+121,118,90,Riverside Drive,secondary,False,N/A,90.33
+118,122,90,Riverside Drive,secondary,False,N/A,90.47
+122,118,90,Riverside Drive,secondary,False,N/A,90.47
+123,124,30,South End Avenue,residential,False,25 mph,30.16
+124,123,30,South End Avenue,residential,False,25 mph,30.16
+123,125,109,Liberty Street,residential,False,25 mph,109.31
+125,123,109,Liberty Street,residential,False,25 mph,109.31
+123,126,174,South End Avenue,residential,False,25 mph,174.01
+126,123,174,South End Avenue,residential,False,25 mph,174.01
+127,125,25,Liberty Street,residential,False,N/A,25.31
+125,127,25,Liberty Street,residential,False,N/A,25.31
+127,128,218,West Street,trunk,True,30 mph,218.43
+129,130,93,Liberty Street,unclassified,False,25 mph,92.90
+130,129,93,Liberty Street,unclassified,False,25 mph,92.90
+129,127,175,Liberty Street,unclassified,True,25 mph,174.87
+129,131,54,Greenwich Street,unclassified,True,25 mph,53.70
+129,132,220,Greenwich Street,unclassified,False,25 mph,220.49
+132,129,220,Greenwich Street,unclassified,False,25 mph,220.49
+133,134,90,Church Street,secondary,True,25 mph,90.39
+133,135,107,Liberty Street,unclassified,False,25 mph,106.89
+135,133,107,Liberty Street,unclassified,False,25 mph,106.89
+135,133,107,Liberty Street,unclassified,False,25 mph,106.89
+133,135,107,Liberty Street,unclassified,False,25 mph,106.89
+135,136,119,Liberty Street,residential,True,25 mph,118.83
+135,137,46,Broadway,secondary,True,25 mph,46.19
+136,138,136,Liberty Street,residential,True,25 mph,135.90
+136,139,63,Nassau Street,residential,True,25 mph,62.53
+138,140,87,Liberty Street,residential,True,25 mph,86.85
+138,141,36,William Street,residential,True,25 mph,36.49
+142,143,72,Unnamed Street,motorway_link,True,N/A,72.39
+142,144,57,East 124th Street,residential,True,25 mph,56.54
+143,145,80,Unnamed Street,motorway_link,True,N/A,80.47
+145,146,358,Unnamed Street,motorway_link,True,N/A,358.05
+147,148,86,11th Avenue,secondary,True,25 mph,85.68
+149,150,341,Unnamed Street,motorway_link,True,40 mph,341.48
+149,151,867,FDR Drive,motorway,True,40 mph,866.94
+152,153,103,Dover Street,secondary,True,25 mph,103.15
+152,154,101,Pearl Street,primary,False,N/A,101.19
+154,152,101,Pearl Street,primary,False,N/A,101.19
+152,155,165,Frankfort Street,secondary,False,25 mph,165.23
+155,152,165,Frankfort Street,secondary,False,25 mph,165.23
+152,156,16,Pearl Street,primary,False,25 mph,15.53
+156,152,16,Pearl Street,primary,False,25 mph,15.53
+157,158,1005,Henry Hudson Parkway,motorway,True,N/A,1005.28
+159,146,261,Unnamed Street,motorway_link,True,N/A,260.65
+160,161,98,FDR Drive,primary,True,25 mph,97.89
+37,162,19,West 79th Street,secondary,False,25 mph,18.78
+162,37,19,West 79th Street,secondary,False,25 mph,18.78
+37,163,88,Riverside Drive,secondary,False,N/A,88.02
+163,37,88,Riverside Drive,secondary,False,N/A,88.02
+37,36,87,Riverside Drive,secondary,False,N/A,87.48
+36,37,87,Riverside Drive,secondary,False,N/A,87.48
+37,35,143,West 79th Street,secondary,False,25 mph,142.72
+35,37,143,West 79th Street,secondary,False,25 mph,142.72
+164,165,80,1st Avenue,primary,True,25 mph,79.94
+164,166,147,East 37th Street,secondary,True,25 mph,147.22
+167,168,9,East 36th Street,secondary,True,25 mph,9.40
+167,169,79,2nd Avenue,primary,True,25 mph,78.92
+170,171,71,FDR Drive,motorway,True,40 mph,71.34
+172,173,30,East Houston Street,primary,True,25 mph,29.70
+172,174,274,Unnamed Street,motorway_link,True,40 mph,274.36
+175,162,276,Unnamed Street,motorway_link,True,N/A,275.97
+175,157,544,Henry Hudson Parkway,motorway,True,N/A,544.47
+176,177,141,West 175th Street,residential,True,N/A,141.02
+176,178,84,Amsterdam Avenue,secondary,False,N/A,84.38
+178,176,84,Amsterdam Avenue,secondary,False,N/A,84.38
+176,179,86,Amsterdam Avenue,secondary,False,N/A,86.01
+179,176,86,Amsterdam Avenue,secondary,False,N/A,86.01
+180,181,44,Amsterdam Avenue,secondary,False,N/A,44.36
+181,180,44,Amsterdam Avenue,secondary,False,N/A,44.36
+180,182,78,Amsterdam Avenue,secondary,False,N/A,77.96
+182,180,78,Amsterdam Avenue,secondary,False,N/A,77.96
+183,184,68,Unnamed Street,motorway_link,True,N/A,68.39
+183,185,91,Unnamed Street,motorway_link,True,N/A,90.93
+185,186,15,East 126th Street,residential,True,N/A,14.63
+185,187,82,Unnamed Street,motorway_link,True,30 mph,82.49
+184,145,76,Unnamed Street,motorway_link,True,N/A,76.47
+184,188,195,East 125th Street,primary,False,N/A,195.00
+188,184,195,East 125th Street,primary,False,N/A,195.00
+184,189,16,East 125th Street,primary,False,N/A,16.23
+189,184,16,East 125th Street,primary,False,N/A,16.23
+190,191,21,FDR Drive,primary,True,25 mph,21.11
+190,192,176,Grand Street,primary,False,25 mph,176.22
+192,190,176,Grand Street,primary,False,25 mph,176.22

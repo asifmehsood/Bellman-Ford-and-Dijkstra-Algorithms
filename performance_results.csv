@@ -1,0 +1,7 @@
+Algorithm,Dataset,Best Time (ms),Average Time (ms),Worst Time (ms),Num Runs
+Dijkstra,dijkstra_bellman_small_dataset.csv,0.9849,1.6596,3.1772,20
+Bellman-Ford,dijkstra_bellman_small_dataset.csv,0.9985,1.5373,3.0093,20
+Dijkstra,dijkstra_bellman_medium_dataset.csv,12.8560,17.9625,58.9237,20
+Bellman-Ford,dijkstra_bellman_medium_dataset.csv,12.9757,15.7838,20.0853,20
+Dijkstra,dijkstra_bellman_large_dataset.csv,385.3948,420.7350,529.4108,20
+Bellman-Ford,dijkstra_bellman_large_dataset.csv,105.4792,121.3471,147.7232,20
