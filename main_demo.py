@@ -4,6 +4,7 @@ Runs both algorithms on the large dataset and shows sample outputs
 """
 
 import sys
+import os
 from dijkstra_algorithm import run_dijkstra, load_graph_from_csv
 from bellman_ford_algorithm import run_bellman_ford
 import time
@@ -16,13 +17,37 @@ def main():
     print("=" * 80)
     print()
     
-    # Dataset to demonstrate
-    dataset = "dijkstra_bellman_large_dataset.csv"
+    # Dataset to demonstrate - with fallback to available datasets
+    candidates = [
+        "dijkstra_bellman_large_dataset.csv",
+        "dijkstra_bellman_20000_dataset.csv",
+        "dijkstra_bellman_15000_dataset.csv",
+        "dijkstra_bellman_10000_dataset.csv",
+        "dijkstra_bellman_5000_dataset.csv",
+        "dijkstra_bellman_1000_dataset.csv",
+    ]
+    
+    dataset = None
+    for f in candidates:
+        if os.path.exists(f):
+            dataset = f
+            break
+    
+    if dataset is None:
+        print("ERROR: No dataset found. Please create datasets using:")
+        print("  python create_nyc_datasets.py")
+        print("  python create_subset_datasets.py")
+        return 1
+    
     source = 0
     
     # Load graph info
     print("Loading graph dataset...")
-    graph, num_vertices = load_graph_from_csv(dataset)
+    try:
+        graph, num_vertices = load_graph_from_csv(dataset)
+    except FileNotFoundError:
+        print(f"ERROR: Dataset file '{dataset}' not found.")
+        return 1
     num_edges = sum(len(neighbors) for neighbors in graph.values())
     
     print(f"Dataset: {dataset}")
@@ -135,4 +160,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    exit_code = main()
+    if isinstance(exit_code, int):
+        sys.exit(exit_code)
