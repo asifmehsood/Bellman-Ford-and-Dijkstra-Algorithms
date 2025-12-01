@@ -189,8 +189,30 @@ def run_dijkstra(filename, source_vertex=0):
 if __name__ == "__main__":
     # Example usage
     import time
+    import os
     
-    filename = "dijkstra_bellman_large_dataset.csv"
+    # Find an available dataset with fallbacks
+    candidates = [
+        "dijkstra_bellman_large_dataset.csv",
+        "dijkstra_bellman_20000_dataset.csv",
+        "dijkstra_bellman_15000_dataset.csv",
+        "dijkstra_bellman_10000_dataset.csv",
+        "dijkstra_bellman_5000_dataset.csv",
+        "dijkstra_bellman_1000_dataset.csv",
+    ]
+    
+    filename = None
+    for f in candidates:
+        if os.path.exists(f):
+            filename = f
+            break
+    
+    if filename is None:
+        print("ERROR: No dataset found. Create datasets with:")
+        print("  python create_nyc_datasets.py")
+        print("  python create_subset_datasets.py")
+        sys.exit(1)
+    
     source = 0
     
     print("=" * 60)
@@ -201,7 +223,11 @@ if __name__ == "__main__":
     
     # Time the algorithm
     start_time = time.time()
-    distances, predecessors = run_dijkstra(filename, source)
+    try:
+        distances, predecessors = run_dijkstra(filename, source)
+    except FileNotFoundError:
+        print(f"\nERROR: Dataset file '{filename}' not found.")
+        sys.exit(1)
     end_time = time.time()
     
     execution_time = (end_time - start_time) * 1000  # Convert to milliseconds
