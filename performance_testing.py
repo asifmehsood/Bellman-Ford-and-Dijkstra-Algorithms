@@ -8,6 +8,7 @@ Runs both algorithms 20 times on each dataset and collects performance metrics
 import time
 import csv
 import sys
+import os
 from dijkstra_algorithm import run_dijkstra
 from bellman_ford_algorithm import run_bellman_ford
 
@@ -92,13 +93,30 @@ class PerformanceTester:
         """
         Test both algorithms on all datasets (small, medium, large)
         """
-        datasets = [
-            "dijkstra_bellman_small_dataset.csv",
-            "dijkstra_bellman_medium_dataset.csv",
-            "dijkstra_bellman_large_dataset.csv"
+        # Define candidate datasets with labels
+        all_candidates = [
+            ("dijkstra_bellman_small_dataset.csv", "SMALL (1000 edges)"),
+            ("dijkstra_bellman_250_dataset.csv", "SMALL (250 edges)"),
+            ("dijkstra_bellman_500_dataset.csv", "SMALL (500 edges)"),
+            ("dijkstra_bellman_750_dataset.csv", "SMALL (750 edges)"),
+            ("dijkstra_bellman_1000_dataset.csv", "SMALL (1000 edges)"),
+            ("dijkstra_bellman_medium_dataset.csv", "MEDIUM (10000 edges)"),
+            ("dijkstra_bellman_5000_dataset.csv", "MEDIUM (5000 edges)"),
+            ("dijkstra_bellman_10000_dataset.csv", "MEDIUM (10000 edges)"),
+            ("dijkstra_bellman_large_dataset.csv", "LARGE (50000 edges)"),
+            ("dijkstra_bellman_15000_dataset.csv", "LARGE (15000 edges)"),
+            ("dijkstra_bellman_20000_dataset.csv", "LARGE (20000 edges)"),
         ]
         
-        dataset_sizes = ["SMALL", "MEDIUM", "LARGE"]
+        # Filter to only existing files
+        datasets = [(f, label) for f, label in all_candidates if os.path.exists(f)]
+        
+        if not datasets:
+            print("ERROR: No dataset files found!")
+            print("Please create datasets using:")
+            print("  python create_nyc_datasets.py")
+            print("  python create_subset_datasets.py")
+            return
         
         print("=" * 70)
         print("PERFORMANCE TESTING - SHORTEST PATH ALGORITHMS")
@@ -107,28 +125,37 @@ class PerformanceTester:
         print("  - Number of runs per test: 20")
         print("  - Source vertex: 0")
         print("  - Algorithms: Dijkstra (Greedy), Bellman-Ford (Dynamic Programming)")
+        print(f"  - Datasets found: {len(datasets)}")
         print("=" * 70)
         
-        for dataset, size in zip(datasets, dataset_sizes):
+        for dataset, size_label in datasets:
             print(f"\n{'=' * 70}")
-            print(f"TESTING ON {size} DATASET: {dataset}")
+            print(f"TESTING ON {size_label}: {dataset}")
             print("=" * 70)
             
-            # Test Dijkstra's Algorithm
-            self.run_multiple_tests(
-                algorithm_name="Dijkstra",
-                algorithm_func=run_dijkstra,
-                filename=dataset,
-                num_runs=20
-            )
+            try:
+                # Test Dijkstra's Algorithm
+                self.run_multiple_tests(
+                    algorithm_name="Dijkstra",
+                    algorithm_func=run_dijkstra,
+                    filename=dataset,
+                    num_runs=20
+                )
+            except Exception as e:
+                print(f"[ERROR] Dijkstra failed on {dataset}: {e}")
+                continue
             
-            # Test Bellman-Ford Algorithm
-            self.run_multiple_tests(
-                algorithm_name="Bellman-Ford",
-                algorithm_func=run_bellman_ford,
-                filename=dataset,
-                num_runs=20
-            )
+            try:
+                # Test Bellman-Ford Algorithm
+                self.run_multiple_tests(
+                    algorithm_name="Bellman-Ford",
+                    algorithm_func=run_bellman_ford,
+                    filename=dataset,
+                    num_runs=20
+                )
+            except Exception as e:
+                print(f"[ERROR] Bellman-Ford failed on {dataset}: {e}")
+                continue
         
         print("\n" + "=" * 70)
         print("ALL TESTS COMPLETED!")

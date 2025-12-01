@@ -1,7 +1,17 @@
 Algorithm,Dataset,Best Time (ms),Average Time (ms),Worst Time (ms),Num Runs
-Dijkstra,dijkstra_bellman_small_dataset.csv,0.9849,1.6596,3.1772,20
-Bellman-Ford,dijkstra_bellman_small_dataset.csv,0.9985,1.5373,3.0093,20
-Dijkstra,dijkstra_bellman_medium_dataset.csv,12.8560,17.9625,58.9237,20
-Bellman-Ford,dijkstra_bellman_medium_dataset.csv,12.9757,15.7838,20.0853,20
-Dijkstra,dijkstra_bellman_large_dataset.csv,385.3948,420.7350,529.4108,20
-Bellman-Ford,dijkstra_bellman_large_dataset.csv,105.4792,121.3471,147.7232,20
+Dijkstra,dijkstra_bellman_250_dataset.csv,0.0000,0.8680,2.4207,20
+Bellman-Ford,dijkstra_bellman_250_dataset.csv,0.0000,0.6142,1.7135,20
+Dijkstra,dijkstra_bellman_500_dataset.csv,0.0000,0.8649,1.6730,20
+Bellman-Ford,dijkstra_bellman_500_dataset.csv,0.0000,0.8107,2.0065,20
+Dijkstra,dijkstra_bellman_750_dataset.csv,0.8781,1.2531,2.2101,20
+Bellman-Ford,dijkstra_bellman_750_dataset.csv,0.0000,1.1701,2.0156,20
+Dijkstra,dijkstra_bellman_1000_dataset.csv,0.9906,1.6097,2.5396,20
+Bellman-Ford,dijkstra_bellman_1000_dataset.csv,0.5043,1.3638,2.6715,20
+Dijkstra,dijkstra_bellman_5000_dataset.csv,5.6131,7.4466,8.6799,20
+Bellman-Ford,dijkstra_bellman_5000_dataset.csv,5.5051,6.9845,8.9653,20
+Dijkstra,dijkstra_bellman_10000_dataset.csv,13.0160,14.5552,17.1671,20
+Bellman-Ford,dijkstra_bellman_10000_dataset.csv,12.3193,14.2359,16.1245,20
+Dijkstra,dijkstra_bellman_15000_dataset.csv,37.8103,41.2324,49.4909,20
+Bellman-Ford,dijkstra_bellman_15000_dataset.csv,23.0670,27.6048,33.0780,20
+Dijkstra,dijkstra_bellman_20000_dataset.csv,175.1633,229.9846,340.6134,20
+Bellman-Ford,dijkstra_bellman_20000_dataset.csv,64.9281,75.4069,95.9024,20

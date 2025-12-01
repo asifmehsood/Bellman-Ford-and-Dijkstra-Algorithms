@@ -4,6 +4,7 @@ Shows how to use the metadata columns for advanced analysis
 """
 
 import csv
+import os
 from collections import defaultdict
 
 
@@ -177,11 +178,31 @@ def main():
     print("ENHANCED NYC STREET DATASET FEATURES DEMONSTRATION")
     print("=" * 80)
     
-    # Use medium dataset for demonstration
-    filename = "dijkstra_bellman_medium_dataset.csv"
+    # Choose an available dataset (prefer medium, then fallbacks)
+    candidates = [
+        "dijkstra_bellman_medium_dataset.csv",
+        "dijkstra_bellman_10000_dataset.csv",
+        "dijkstra_bellman_5000_dataset.csv",
+        "dijkstra_bellman_1000_dataset.csv",
+        "dijkstra_bellman_750_dataset.csv",
+        "dijkstra_bellman_500_dataset.csv",
+        "dijkstra_bellman_250_dataset.csv",
+    ]
+    filename = None
+    for f in candidates:
+        if os.path.exists(f):
+            filename = f
+            break
+    if filename is None:
+        print("ERROR: No dataset found. Please create with 'create_nyc_datasets.py' or 'create_subset_datasets.py'.")
+        return 1
     
     print(f"\nLoading dataset: {filename}...")
-    edges, graph = load_enhanced_dataset(filename)
+    try:
+        edges, graph = load_enhanced_dataset(filename)
+    except FileNotFoundError:
+        print(f"ERROR: Dataset file '{filename}' not found.")
+        return 1
     print(f"✓ Loaded {len(edges)} edges")
     
     # Analyze metadata
@@ -218,4 +239,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    code = main()
+    if isinstance(code, int):
+        import sys
+        sys.exit(code)
