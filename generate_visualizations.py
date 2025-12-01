@@ -45,8 +45,25 @@ def create_comparison_charts(results):
     Args:
         results: List of performance results
     """
-    # Organize data
-    datasets = ['SMALL', 'MEDIUM', 'LARGE']
+    # Organize data - extract unique dataset names dynamically
+    dataset_names = []
+    seen_datasets = set()
+    for result in results:
+        dataset = result['dataset']
+        if dataset not in seen_datasets:
+            dataset_names.append(dataset)
+            seen_datasets.add(dataset)
+    
+    # Group by dataset and algorithm
+    data_by_dataset = {}
+    for dataset in dataset_names:
+        data_by_dataset[dataset] = {'Dijkstra': None, 'Bellman-Ford': None}
+        for result in results:
+            if result['dataset'] == dataset:
+                data_by_dataset[dataset][result['algorithm']] = result
+    
+    # Extract lists for plotting
+    datasets = [d.replace('dijkstra_bellman_', '').replace('_dataset.csv', '').upper() for d in dataset_names]
     dijkstra_best = []
     dijkstra_avg = []
     dijkstra_worst = []
@@ -54,17 +71,18 @@ def create_comparison_charts(results):
     bellman_avg = []
     bellman_worst = []
     
-    for dataset in datasets:
-        for result in results:
-            if dataset.lower() in result['dataset'].lower():
-                if result['algorithm'] == 'Dijkstra':
-                    dijkstra_best.append(result['best_time'])
-                    dijkstra_avg.append(result['average_time'])
-                    dijkstra_worst.append(result['worst_time'])
-                elif result['algorithm'] == 'Bellman-Ford':
-                    bellman_best.append(result['best_time'])
-                    bellman_avg.append(result['average_time'])
-                    bellman_worst.append(result['worst_time'])
+    for dataset in dataset_names:
+        dijk_data = data_by_dataset[dataset]['Dijkstra']
+        bell_data = data_by_dataset[dataset]['Bellman-Ford']
+        
+        if dijk_data:
+            dijkstra_best.append(dijk_data['best_time'])
+            dijkstra_avg.append(dijk_data['average_time'])
+            dijkstra_worst.append(dijk_data['worst_time'])
+        if bell_data:
+            bellman_best.append(bell_data['best_time'])
+            bellman_avg.append(bell_data['average_time'])
+            bellman_worst.append(bell_data['worst_time'])
     
     # Create figure with multiple subplots
     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -234,7 +252,7 @@ def create_results_table_image(results):
             else:
                 cell.set_facecolor('#ffffff')
     
-    plt.title('Performance Results Summary', fontsize=16, fontweight='bold', pad=20)
+    # plt.title('Performance Results Summary', fontsize=16, fontweight='bold', pad=20)
     plt.savefig('results_table.png', dpi=300, bbox_inches='tight')
     print("✓ Saved: results_table.png")
     plt.close()
